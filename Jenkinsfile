@@ -14,5 +14,10 @@ pipeline {
                 sh 'python3 main.py'
             }
         }
+        stage('Run one more'){
+            steps {
+                sh 'python script.py vlad pochta@yandex.ru qwerty'
+            }
+        }
     }
 }
