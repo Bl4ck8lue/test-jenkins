@@ -21,11 +21,8 @@ pipeline {
         }
         stage('SonarQube analysis') {
             steps {
-                stage('SonarQube analysis') {
-                    //def scannerHome = tool 'SonarQube'; // must match the name of an actual scanner installation directory on your Jenkins build agent
-                    withSonarQubeEnv('SonarCloud') { 
-                        sh "/var/lib/jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/SonarQube/bin/sonar-scanner"
-                    }
+                withSonarQubeEnv('SonarCloud') { 
+                    sh "/var/lib/jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/SonarQube/bin/sonar-scanner"
                 }
             }
         }
