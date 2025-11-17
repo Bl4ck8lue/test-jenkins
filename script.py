@@ -6,13 +6,13 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-db_host = os.getenv("DB_HOST")
-db_name = os.getenv("DB_NAME")
-db_user = os.getenv("DB_USER")
-db_password = os.getenv("DB_PASSWORD")
+#db_host = os.getenv("DB_HOST")
+#db_name = os.getenv("DB_NAME")
+#db_user = os.getenv("DB_USER")
+#db_password = os.getenv("DB_PASSWORD")
 
 def main(name1, email1, passw):
-    conn = psycopg2.connect(dbname=db_name, user=db_user, password=db_password, host=db_host)
+    conn = psycopg2.connect(dbname="client_reg", user="ilya", password="4suh12iiyu", host="localhost")
     cursor = conn.cursor()
 
     person = (name1, email1, passw)
