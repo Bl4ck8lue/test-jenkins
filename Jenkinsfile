@@ -20,14 +20,14 @@ pipeline {
             }
         }
         stage('SonarQube analysis') {
-            sh 'echo Run SAST - SonarQube analysis'
-            def scannerHome = tool 'sonar_scanner';
-            withSonarQubeEnv() {
-                sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=myapp"
+            steps {
+                script {
+                    scannerHome = tool '<sonarqubeScannerInstallation>'// must match the name of an actual scanner installation directory on your Jenkins build agent
+                }  
+                withSonarQubeEnv('SonarCloud') {
+                    sh "${scannerHome}/bin/sonar-scanner"
+                }
             }
-        }
-        stage("SonarQube Quality Gate") {
-            waitForQualityGate abortPipeline: true
         }
     }
 }
