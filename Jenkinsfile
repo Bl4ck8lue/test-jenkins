@@ -16,7 +16,7 @@ pipeline {
         }
         stage('Run one more'){
             steps {
-                sh 'python script.py vlad pochta@yandex.ru qwerty'
+                sh 'python3 script.py vlad pochta@yandex.ru qwerty'
             }
         }
     }
